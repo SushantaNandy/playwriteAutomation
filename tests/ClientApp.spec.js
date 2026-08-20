@@ -2,6 +2,7 @@ const {test, expect} = require('@playwright/test');
 
 test.describe.configure({mode:'serial'});
 
+
 //shared variable
 let page;
 let userEmail;
@@ -17,7 +18,7 @@ test.beforeAll(async ({browser})=>{
 
 })
 
-test('Validate Regestaration Test', async ()=>
+test('@Web Validate Regestaration Test', async ()=>
 {
     await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
     
@@ -56,7 +57,7 @@ test('Validate Regestaration Test', async ()=>
 
 });
 
-test('Validate Login Test', async ()=>
+test('@Web Validate Login Test', async ()=>
 {
     const emailField = page.locator("#userEmail");
     const passwordField = page.locator("#userPassword");
@@ -69,7 +70,7 @@ test('Validate Login Test', async ()=>
     // await page.pause();
 });
 
-test('Validate DashBord Product Selection', async()=>
+test('@Web Validate DashBord Product Selection', async()=>
     {
     await page.waitForLoadState('networkidle');
     await page.locator(".card-body").first().waitFor();
@@ -88,7 +89,7 @@ test('Validate DashBord Product Selection', async()=>
 })
 
 
-test('Validate Cart', async()=>
+test('@Web Validate Cart', async()=>
     {
 
         const cartBtn = page.locator("[routerlink*='cart']");
@@ -103,7 +104,7 @@ test('Validate Cart', async()=>
 
 })
 
-test('Validate Checkout Page', async()=>{
+test('@Web Validate Checkout Page', async()=>{
 
     const shippingCountry = page.locator("[placeholder*='Country']");
     const conuntryDropdown = page.locator(".ta-results").first();
@@ -128,7 +129,7 @@ test('Validate Checkout Page', async()=>{
 
 })
 
-test('Validate the Place Page', async()=>{
+test('@Web Validate the Place Page', async()=>{
 
     await expect(page.locator('.hero-primary')).toHaveText(' Thankyou for the order. ');
     const orderIds = page.locator(".em-spacer-1 .ng-star-inserted");
@@ -138,7 +139,7 @@ test('Validate the Place Page', async()=>{
         console.log(`Order ids are:  ${orderId}`);
     //}
 
-    await page.pause();
+
 })
 
 test.afterAll(async ()=>{

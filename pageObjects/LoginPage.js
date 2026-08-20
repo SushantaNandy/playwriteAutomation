@@ -1,22 +1,22 @@
 class LoginPage{
-
     constructor(page){
-        this.page = page;
-        this.emailField = page.locator("#userEmail");
-        this.passwordField = page.locator("#userPassword");
-        this.loginBtn = page.locator("[type ='submit']");
-
+        this.page= page;
+        this.LoginBtn = page.locator("input#login");
+        this.EmailField = page.locator("#userEmail");
+        this.PasswordField = page.locator("#userPassword");
     }
 
     async goto(){
-        await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
+        this.page.goto("https://rahulshettyacademy.com/client/#/auth/login");
     }
 
-    async vaidLogin(username, password){
-    await emailField.fill(userEmail);
-    await passwordField.fill(password);
-    await loginBtn.click();
+    async validLogin(username, password){
+        
+        await this.EmailField.fill(username);
+        await this.PasswordField.fill(password);
+        await this.LoginBtn.click();
+        await this.page.waitForLoadState('networkidle');
     }
 }
 
-module.exports = {LoginPage}
+module.exports = {LoginPage};

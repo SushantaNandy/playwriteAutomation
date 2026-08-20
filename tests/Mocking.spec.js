@@ -1,5 +1,5 @@
 const {test, expect,request} = require('@playwright/test');
-const{APIutils} = require('./utils/APIutils');
+const{APIutils} = require('../utils/APIutils');
 
 test.describe.configure({mode:'serial'});
 
@@ -29,7 +29,7 @@ test.beforeAll(async({browser})=>{
 
 
 
-test('Validate Order Page', async()=>
+test('@API Validate Order Page', async()=>
     {
         //calling the methods created in the Utils class
         const apiUtils = new APIutils(apiContext, loginPayload);

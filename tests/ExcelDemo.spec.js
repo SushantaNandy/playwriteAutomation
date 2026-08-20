@@ -43,4 +43,5 @@ test("Upload download excel validation", async({page})=>{
     await page.locator("#fileinput").click();
     //below setInputFiles only works input type= file
     await page.locator("#fileinput").setInputFiles('/Users/shushantanandy/Downloads/download.xlsx');
+    const textLocator = await page.getByText('Mango');
 })
